@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+  *{
+    padding: 0;
+    margin: 0;
+  }
+.main{
+  display: flex;
+  /* height: 100vh; */
+  padding: 40px;
+  justify-content: center;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(59, 57, 57));
+}
+.todo h1{
+  font-size: 3rem;
+}
+.text {
+  border: none;
+  padding: 3px;
+  border-radius: 1rem;
+  /* text-decoration: none; */
+}
+.remove{
+  display: none;
+  border: none;
+  padding: 3px;
+  border-radius: 1rem;
+}
+
+ 
+</style>
+<body>
+      <div class="main">
+        <div class="todo">
+          <h1> To Do List</h1>
+          <input type="text" class="text" id="text" placeholder="enter the task">
+
+          <button class="text" type="btn" id="btn">add</button>
+          <button type="button" class="remove">delete</button>
+        </div>
+      </div>
+     <ul></ul>
+  <script >
+    const input = document.querySelector('input')
+    const btn = document.querySelector('button')
+    const li = document.querySelector('li')
+
+    btn.addEventListener('click' ,()=>{
+    const list = document.createElement('li')
+    list.innerText = input.value
+    const ul = document.querySelector('ul')
+    const button = document.createElement('button')
+    button.innerText = 'Delete'
+    list.append(button)
+
+    button.addEventListener('click', (e)=>{
+        const parent = e.target.parentElement
+        ul.removeChild(parent)
+    })
+
+    ul.append(list)
+})
+// console.table([input , btn]);
+  </script>
+</body>
+</html>
